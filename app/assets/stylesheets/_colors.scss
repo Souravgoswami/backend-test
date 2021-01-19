@@ -1,0 +1,9 @@
+$backend-test-gray: #484848;
+
+$backend-test: (
+  "white-10": #FBFBFB,
+  "green-10": #1E8502
+);
+
+$primarybackground: #FBFBFB;
+$primary: map-get($backend-test, 'green-100');
