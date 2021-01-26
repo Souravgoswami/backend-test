@@ -28,16 +28,16 @@ Before pairing:
 We would like the navbar to be dynamic and allow users to log out when they are logged in and login/register when they aren't. [Devise gem](https://github.com/heartcombo/devise) is being used to manage user authentication, ensure sign in and sign up buttons dissapear and is replaced by user's email and logout button on navbar when user is logged in, and sign up, sign in buttons show when a user isn't logged in.
 
 ### Task 2 - consume api
-We would like to have more information about a makeup on the index page. The information should come from Makeup api (e.g. http://makeup-api.herokuapp.com/). We should display rating, price and other colors if available, specifications for the card component in view can be found [here](https://bulma.io/documentation/components/card/).
+We would like to have more information about a makeup on the index page. The information should come from Makeup api (e.g. http://makeup-api.herokuapp.com/). Display rating, price and other colors if available, specifications for the card component in view can be found [here](https://bulma.io/documentation/components/card/).
 
 ### Task 3 - api to local
-We don't store this data in database, and it is fetched directly from the API, we would like to have this data locally so, it is not fetched from an external API everytime. Write a rails seed that seeds the database intially with information from the api, fetch all the products from http://makeup-api.herokuapp.com/api/v1/products.json and store them in the database, then update the `makeups_controller.rb` and `makeups/index.slim` so it makeups are now fetched from the database. 
+We don't store any data in database, it is fetched directly from the API, we would like to have this data locally so, it is not fetched from an external API everytime. Write a rails seed that seeds the database intially with information from the api, fetch all the products from http://makeup-api.herokuapp.com/api/v1/products.json and store them in the database, then update the `makeups_controller.rb` and `makeups/index.slim` so makeups are now fetched from the database. 
 
-Note: Create a migration on the database to store a column that might not exist already
+Note: Create a migration on the database to store a new column if it doesn't exist already
 
 ### Task 4 - description validations
 We would like to clean the descriptions before saving them to the database.
-Makeup descriptions contain many tokens like `\n` or `\t`. Write a [callback](https://guides.rubyonrails.org/active_record_callbacks.html) that ensures these are removed before being saved to the database.
+Makeup descriptions may contain unwanted tokens like `\n` or `\t`. Write a [callback](https://guides.rubyonrails.org/active_record_callbacks.html) that ensures these are removed before being added to the database.
 
 ### To contribute fixes/updates
 * Fork repository
