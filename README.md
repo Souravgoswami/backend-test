@@ -24,20 +24,20 @@ Before pairing:
 - Put solutions for tasks in separate pull requests with descriptive commits, merge them to master branch after all
 - Do not forget to check if all tests pass by running command `RAILS_ENV=test bundle exec rspec` from you app folder
 
-### Task 1 - consume api
-We would like to have more information about a makeup on the index page. The information should come from Makeup api (e.g. http://makeup-api.herokuapp.com/). We should display makeup poster (e.g. https://d3t32hsnjxo7q6.cloudfront.net/i/991799d3e70b8856686979f8ff6dcfe0_ra,w158,h184_pa,w158,h184.png), rating and plot overview. We can't store this data in database.
+### Task 1 - updating views
+We would like the navbar to be dynamic and allow users to log out when they are logged in and login/register when they aren't. [Devise gem](https://github.com/heartcombo/devise) is being used to manage user authentication, ensure sign in and sign up buttons dissapear and is replaced by user's email and logout button on navbar when user is logged in, and sign up, sign in buttons show when a user isn't logged in.
 
-### Task 4 - brackets validation
-Our moderators are adding parentheses and brackets to the titles of makeup.
+### Task 2 - consume api
+We would like to have more information about a makeup on the index page. The information should come from Makeup api (e.g. http://makeup-api.herokuapp.com/). We should display rating, price and other colors if available, specifications for the card component in view can be found [here](https://bulma.io/documentation/components/card/).
 
-For example `The Fellowship of the Ring [Lord of The Rings {Peter Jackson}] (2012)`.
+### Task 3 - api to local
+We don't store this data in database, and it is fetched directly from the API, we would like to have this data locally so, it is not fetched from an external API everytime. Write a rails seed that seeds the database intially with information from the api, fetch all the products from http://makeup-api.herokuapp.com/api/v1/products.json and store them in the database, then update the `makeups_controller.rb` and `makeups/index.slim` so it makeups are now fetched from the database. 
 
-This is ok, but we need to make sure that all brackets are closed and not empty. They can be nested as in the example above.
+Note: Create a migration on the database to store a column that might not exist already
 
-Uncomment tests in `spec/validators/title_brackets_validator_spec.rb` and add validations for movie title that match all the criteria.
-With all those tests passing you will know that solution is correct.
-
-Hint: It can't be solved via regular expressions.
+### Task 4 - description validations
+We would like to clean the descriptions before saving them to the database.
+Makeup descriptions contain many tokens like `\n` or `\t`. Write a [callback](https://guides.rubyonrails.org/active_record_callbacks.html) that ensures these are removed before being saved to the database.
 
 ### To contribute fixes/updates
 * Fork repository
@@ -53,5 +53,3 @@ Hint: It can't be solved via regular expressions.
   * Push branch to [Jalappeno backend](https://github.com/Jalappeno-apps/backend-test). It will be propagated to public repo
   * Specify in this task description that it should be solved on this branch
 * If you change something in the repo please try to update ruby/rails/gems versions to the latest.
-
-

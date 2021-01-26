@@ -1,0 +1,16 @@
+h1.title.has-text-centered All makeups
+
+.container
+  .columns.is-multiline
+    - @makeups.each do |makeup|
+      .column.is-one-fifth
+        .card.p-4
+          .card-image
+            figure.image.is-4by3
+              = image_tag makeup["image_link"]
+          .card-content
+            .media
+              .media-content
+                p.title.is-4 = makeup["name"]
+          .content
+            = makeup["description"]
