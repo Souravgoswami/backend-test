@@ -12,6 +12,7 @@ Place where we examine our candidates
 Before pairing:
  - Clone repo `git clone git@github.com:Jalappepno-apps/backend-test.git`
  - run `bundle install` within app directory
+ - run `yarn install` within app directory to install required node modules
  - run `rake db:setup` This will create database, run migrations and fill db with seeds
  - run `rails s` :boom:
 
