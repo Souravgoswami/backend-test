@@ -1,0 +1,192 @@
+::-moz-focus-inner {
+	border: 0 ;
+}
+
+.notify-send {
+	user-select: none ;
+	font-family: alice ;
+	z-index: 100000 ;
+	display: block ;
+	position: fixed ;
+	top: 0 ;
+	right: 0 ;
+	padding: 16px 24px ;
+	background-color: #fff ;
+	border-radius: 4px ;
+	color: #000 ;
+	opacity: 1 ;
+	transform: translateX(-10%) ;
+	filter: drop-shadow(2px 2px 4px #0004) blur(0px) ;
+	overflow: hidden ;
+	overflow-wrap: break-word ;
+	width: 24vw ;
+	transition: all 0.125s ease ;
+	cursor: pointer ;
+	animation: fade-in 1s ease ;
+
+	&:hover {
+		filter: drop-shadow(2px 2px 8px #0004) blur(0px) ;
+	}
+}
+
+.notify-label {
+	outline: none ;
+	margin-right: 12px ;
+}
+
+.notification-button {
+	display: inline-block ;
+	border: none ;
+	background-color: #fff ;
+	padding: 6px 12px ;
+	text-decoration: none ;
+	border-radius: 2px ;
+	color: #444 ;
+	overflow: hidden ;
+	filter: drop-shadow(2px 2px 2px #0004) ;
+	transition: all 0.25s ease ;
+	margin-top: 8px ;
+
+	&::before {
+		content: '' ;
+		position: absolute ;
+		top: 50% ;
+		left: 50% ;
+		width: 100% ;
+		height: 100% ;
+		z-index: -1 ;
+		background-color: #eee ;
+		border-radius: 50% ;
+		transform: scale(0) ;
+	}
+
+	&:hover {
+		filter: drop-shadow(4px 4px 2px #0005) ;
+		text-decoration: none ;
+	}
+
+	&:active {
+		filter: drop-shadow(4px 4px 2px #0002) ;
+		text-decoration: none ;
+		outline: none ;
+	}
+
+	&:active, &:focus {
+		&::before {
+			animation: x 0.5s ease forwards ;
+			opacity: 1 ;
+		}
+	}
+
+	&:focus {
+		outline: none ;
+	}
+
+}
+
+@keyframes x {
+	0% {
+		transform: translate(-50%, -50%) scale(0) ;
+	}
+
+	100% {
+		transform: translate(-50%, -50%) scale(2) ;
+	}
+}
+
+.cancel-notification-label {
+	transition: all 0.25s ease ;
+	display: inline ;
+}
+
+.cancel-notification {
+	position: absolute ;
+	top: 0 ;
+	right: 0 ;
+	display: flex ;
+	justify-content: center ;
+	place-items: center ;
+	height: 100% ;
+	width: 25px ;
+	border: none ;
+	background-color: #f55 ;
+	cursor: pointer ;
+	padding: 0px 4px ;
+	color: #fff ;
+	transform: rotate(0deg) ;
+	transition: all 0.25s ease ;
+	overflow: hidden ;
+
+	&:hover {
+		background-color: #55f ;
+	}
+
+	&:focus, &:active {
+		background-color: #fa0 ;
+	}
+
+	&:hover .cancel-notification-label {
+		transform: rotate(90deg) scale(1.2) ;
+	}
+
+	&:active .cancel-notification-label, &:focus .cancel-notification-label {
+		transform: rotate(180deg) scale(1) ;
+	}
+
+	&::before {
+		content: '' ;
+		position: absolute ;
+		top: 50% ;
+		left: 50% ;
+		width: 100% ;
+		height: 100% ;
+		border-radius: 2% ;
+		z-index: -1 ;
+		background-color: #fff ;
+		transform: scale(0) ;
+	}
+
+	&:active, &:focus {
+		&::before {
+			animation: x 0.25s ease forwards ;
+			opacity: 0.5 ;
+		}
+	}
+}
+
+.cross {
+	font-size: 20px ;
+	font-weight: bold ;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0.25 ;
+		transform: translate(100%) ;
+	}
+
+	100% {
+		opacity: 1 ;
+		transform: translate(-10%) ;
+	}
+}
+
+@keyframes slide-out {
+	0% {
+		transform: translateX(-10%) ;
+		opacity: 1 ;
+		filter: drop-shadow(2px 2px 6px #0004) blur(0px) ;
+	}
+
+	75% {
+		transform: translateX(-10%) ;
+		opacity: 0.25 ;
+		filter: drop-shadow(2px 2px 6px #0004) blur(0px) ;
+	}
+
+	100% {
+		transform: translateX(100%) ;
+		filter: drop-shadow(2px 2px 6px #0004) blur(16px) ;
+		opacity: 0 ;
+	}
+}
