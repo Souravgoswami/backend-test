@@ -6,5 +6,6 @@ class MakeupsController < ApplicationController
   end
 
   def show
+    @makeup = Makeup.find(params[:id])
   end
 end
