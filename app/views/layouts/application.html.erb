@@ -7,10 +7,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'notify-send', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'notify-send', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <%= yield %>
+ 		<%= flash_message_manager %>
+
+    <div id="mainContainer">
+      <%= render 'layouts/navbar' %>
+      <%= yield %>
+    </div>
+
+    <div id="footer">
+    </div>
   </body>
 </html>
