@@ -1,23 +1,12 @@
-
-<style type="text/css">
-  #error_explanation {
-    border: 1px solid red;
-    padding: 1.2rem;
-  }
-</style>
-
 <% if resource.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= I18n.t("errors.messages.not_saved",
-                 count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
-       %>
-    </h2>
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+  <%= notify(
+    I18n.t("errors.messages.not_saved",
+      count: resource.errors.count,
+      resource: resource.class.model_name.human.downcase),
+      nil
+  ) %>
+
+  <% resource.errors.full_messages.each do |message| %>
+    <%= notify(message) %>
+  <% end %>
 <% end %>
