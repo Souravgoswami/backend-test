@@ -2,7 +2,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://jalappeno.pl">
-        <img src="https://jalappeno.pl/assets/logo-437bc80dbcde7985e1f15471029e5e047128c63279b338ce80d71b3e9ff0a9ce.svg" width="112" height="28">
+        <%= image_tag "jalappeno.svg", width: 112, height: 28 %>
       </a>
 
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -53,7 +53,6 @@
             <% end %>
             <%= link_to "Sign In", new_user_session_path, class: "button is-light" %>
           <% end %>
-
           </div>
         </div>
       </div>
