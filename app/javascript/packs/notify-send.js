@@ -5,7 +5,7 @@ const PADDING = 10
 const DELAY = 500
 
 // Delay before notificatons auto slides out
-const LIFE = 1250
+const LIFE = 3000
 
 let iteration = 0
 let width = 0

@@ -4,6 +4,23 @@ html, body {
 	height: 100% ;
 }
 
+#userBgMain::before {
+	content: '' ;
+	width: 100% ;
+	height: 100% ;
+	position: fixed ;
+	display: block ;
+	background: #88f url("userbg.svg") center no-repeat ;
+	background-size: cover ;
+	top: 0 ;
+	left: 0 ;
+	z-index: -1000 ;
+}
+
+.navbar {
+	background-color: transparent ;
+}
+
 .preview-color {
 	position: relative ;
 	display: inline-block ;

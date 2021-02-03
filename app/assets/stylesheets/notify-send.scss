@@ -4,6 +4,7 @@
 
 .notify-send {
 	min-width: 160px ;
+	max-width: 350px ;
 	user-select: none ;
 	font-family: alice ;
 	z-index: 100000 ;
@@ -82,7 +83,6 @@
 	&:focus {
 		outline: none ;
 	}
-
 }
 
 @keyframes x {
