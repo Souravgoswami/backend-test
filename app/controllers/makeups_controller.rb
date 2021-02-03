@@ -1,8 +1,6 @@
 class MakeupsController < ApplicationController
   def index
-    uri = URI.parse("http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline")
-    resp = Net::HTTP.get(uri)
-    @makeups = JSON.parse(resp)
+    @makeups = Makeup.page(params[:page].to_i).per(20)
   end
 
   def show
