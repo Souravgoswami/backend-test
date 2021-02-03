@@ -1,0 +1,147 @@
+html, body {
+	margin: 0 ;
+	padding: 0 ;
+	height: 100% ;
+}
+
+.preview-color {
+	position: relative ;
+	display: inline-block ;
+	padding: 8px ;
+	border: 1px solid #0006 ;
+	border-radius: 50% ;
+	transition: border-radius 0.25s ease ;
+	cursor: pointer ;
+
+	&:hover {
+		border-radius: 4px ;
+	}
+}
+
+.makeup-description {
+	width: 100% ;
+	white-space: nowrap ;
+	overflow: hidden ;
+	text-overflow: ellipsis ;
+}
+
+.no-select {
+	user-select: none ;
+}
+
+.h-20px {
+	max-height: 45px ;
+	overflow-y: scroll ;
+}
+
+.pm-0 {
+	padding: 0 !important ;
+	margin: 0 !important ;
+}
+
+
+.hover-zoom {
+	overflow: hidden ;
+	position: relative ;
+
+	.image {
+		transition: all 0.5s ease ;
+	}
+
+	&::before {
+		content: '' ;
+		height: 100% ;
+		width: 100% ;
+		position: absolute ;
+		top: 0 ;
+		left: 0 ;
+		display: block ;
+		z-index: 1 ;
+		background-color: #0004 ;
+		transform: translateY(-100%) ;
+		transition: all 0.25s ease 0.125s ;
+	}
+
+	&::after {
+		content: 'View' ;
+		text-shadow: 2px 2px 2px #0002 ;
+		display: flex ;
+		color: #fff ;
+		font-size: 36px ;
+		text-decoration: underline ;
+		justify-content: center ;
+		align-items: center ;
+		height: 100% ;
+		width: 100% ;
+		position: absolute ;
+		top: 0 ;
+		left: 0 ;
+		z-index: 1 ;
+		transform: translateY(-20%) ;
+		transition: all 0.25s ease 0.25s ;
+		opacity: 0 ;
+	}
+
+	&:hover {
+		&::before, &::after {
+			transform: translateY(0%) ;
+		}
+
+		&::after {
+			opacity: 1 ;
+		}
+
+		.image {
+			transform: scale(1.2) ;
+			filter: blur(2px) ;
+		}
+	}
+}
+
+img.makeup-image {
+	color: #f5a ;
+	display: flex ;
+	height: 100% ;
+	align-items: center ;
+	justify-content: center ;
+}
+
+.w-250px {
+	max-width: 250px ;
+}
+
+.paginate {
+	display: flex ;
+	justify-content: center ;
+	width: 100% ;
+
+	.first, .last, .next, .prev, .page {
+		padding: 16px ;
+	}
+}
+
+#mainContainer {
+	min-height: 100% ;
+}
+
+#footer {
+	background-color: #222 ;
+	min-height: 80px ;
+	padding: 12px ;
+}
+
+.jalappeno-glow {
+	position: relative ;
+
+	& img:first-child {
+		position: relative ;
+	}
+
+	& img:last-child {
+		position: absolute ;
+		top: 0 ;
+		left: 0 ;
+		opacity: 0.5 ;
+		filter: blur(2px) ;
+	}
+}
