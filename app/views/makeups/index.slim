@@ -5,7 +5,7 @@
         .card-title
           h1.title.has-text-centered Welcome to the Jalappeno backend test
           p.mt-5.has-text-centered.subtitle.text-center Place where we examine our candidates
-#makeupProducts.columns.is-multiline.m-2
+#makeupProducts.columns.is-multiline.m-2.w-900
   - @makeups.each_with_index do |m, i|
     .column.is-one-third
       .card.overflow-hidden
@@ -16,8 +16,8 @@
         .card-content
           .media
             .media-content
-              p.title.is-4.pm-0= m.name
-              p.title.is-5= m.brand.name
+              p.title.is-5.pm-0.product-head= m.name
+              p.title.is-6.product-brand= m.brand.name
               p.subtitle.is-6= show_price(m.price)
               .rating-head
                 = generate_rating(m.rating)
