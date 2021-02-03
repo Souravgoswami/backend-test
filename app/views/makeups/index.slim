@@ -1,16 +1,32 @@
-h1.title.has-text-centered All makeups
-
-.container
-  .columns.is-multiline
-    - @makeups.each do |makeup|
-      .column.is-one-fifth
-        .card.p-4
-          .card-image
-            figure.image.is-4by3
-              = image_tag makeup["image_link"]
-          .card-content
-            .media
-              .media-content
-                p.title.is-4 = makeup["name"]
+#welcome.container
+  .columns
+    .column
+      .card.p-5.mt-5
+        .card-title
+          h1.title.has-text-centered Welcome to the Jalappeno backend test
+          p.mt-5.has-text-centered.subtitle.text-center Place where we examine our candidates
+#makeupProducts.columns.is-multiline.m-2
+  - @makeups.each_with_index do |m, i|
+    .column.is-one-third
+      .card.overflow-hidden
+        = link_to m, target: '_blank', rel: 'noopener'  do
+          .card-image.hover-zoom
+            figure.image.is-4by3.overflow-hidden
+              = image_tag m.image_link, alt: "Preview Unavailable", class: 'makeup-image'
+        .card-content
+          .media
+            .media-content
+              p.title.is-4.pm-0= m.name
+              p.title.is-5= m.brand.name
+              p.subtitle.is-6= show_price(m.price)
+              .rating-head
+                = generate_rating(m.rating)
+              .h-20px.no-select
+                - m.color.each do |mc|
+                  = link_to makeup_path(m, color: "#{mc[0].validate_colour}"), target: '_blank', rel: 'noopener'  do
+                    .preview-color style=("background-color: #{mc[0]}")
           .content
-            = makeup["description"]
+            .makeup-description
+              = m.description
+.paginate
+  = paginate @makeups

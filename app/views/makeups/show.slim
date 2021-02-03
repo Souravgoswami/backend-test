@@ -1,0 +1,21 @@
+figure.image.is-4by3.overflow-hidden
+  = image_tag @makeup.image_link, alt: "Preview Unavailable", class: 'makeup-image'
+.container.p-4
+  p.title.is-4.pm-0= @makeup.name
+  p.title.is-5
+    | From #{@makeup.brand.name}
+  p.title.is-5 Rating
+  = generate_rating(@makeup.rating)
+  br/
+  p.subtitle.is-6
+    | Price: #{show_price(@makeup.price)}
+  p.title.is-5 Available Colours
+  .h-20px.no-select
+    br/
+    .w-250px
+      - @makeup.color.each do |mc|
+        = link_to makeup_path(@makeup, color: "#{mc[0].validate_colour}") do
+          .preview-color style=("background-color: #{mc[0]}")
+  .content
+    div
+      = simple_format @makeup.description
