@@ -32,7 +32,7 @@ We would like the navbar to be dynamic and allow users to log out when they are 
 We would like to have more information about a makeup on the index page. The information should come from Makeup api (e.g. http://makeup-api.herokuapp.com/). Display rating, price and other colors if available, specifications for the card component in view can be found [here](https://bulma.io/documentation/components/card/).
 
 ### Task 3 - api to local
-We don't store any data in database, it is fetched directly from the API, we would like to have this data locally so, it is not fetched from an external API everytime. Write a rails seed that seeds the database intially with information from the api, fetch all the products from http://makeup-api.herokuapp.com/api/v1/products.json and store them in the database, then update the `makeups_controller.rb` and `makeups/index.slim` so makeups are now fetched from the database. 
+We don't store any data in database, it is fetched directly from the API, we would like to have this data locally so, it is not fetched from an external API everytime. Write a rails seed that seeds the database intially with information from the api, fetch all the products from http://makeup-api.herokuapp.com/api/v1/products.json and store them in the database, then update the `makeups_controller.rb` and `makeups/index.slim` so makeups are now fetched from the database.
 
 Note: Create a migration on the database to store a new column if it doesn't exist already
 
@@ -45,6 +45,12 @@ Makeup descriptions may contain unwanted tokens like `\n` or `\t`. Write a [call
 * Create pull request (from forked repository, not Jalappeno backend itself)
 * Ask for review one of the contributors
 * After PR is merged branch will be automatically propagated to public repo for candidates
+
+### Test
+To run test, please run:
+```
+$ bundle exec rspec
+```
 
 ### To add new tasks (please do!)
 * Add task description in this README
